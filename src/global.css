@@ -1,0 +1,39 @@
+:root {
+
+    /*400*/
+    --font-boogaloo: "Boogaloo", serif;
+    /*100-900 | normal, italic*/
+    --font-poppins: "Poppins", serif;
+    /*400*/
+    --font-dekko: "Dekko", serif;
+
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-poppins);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity ease-in-out 300ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.visibleScreen {
+    opacity: 1;
+    visibility: visible;
+}
