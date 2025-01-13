@@ -5,12 +5,21 @@
         dialogContent,
         dialogAction,
         currentScreen,
+        bitsStatus,
+        bitsCount,
     } from "../stores";
 
     function handleClose() {
         dialogVisible.set(false);
         setTimeout(() => {
             if ($dialogAction.startsWith("bit-unlock:")) {
+                bitsStatus.update((bits) => {
+                    let newBits = [...bits];
+                    let bitIndex = parseInt($dialogAction.split(":")[1]);
+                    newBits[bitIndex] = "unlocked";
+                    return newBits;
+                });
+                bitsCount.update((count) => count + 1);
             }
             if ($dialogAction === "finish-level:") {
                 currentScreen.set("menu");

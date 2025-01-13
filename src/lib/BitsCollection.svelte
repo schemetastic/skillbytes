@@ -24,11 +24,14 @@
                 <KnowledgeBit
                     variant={i}
                     body={bit !== "unlocked" ? "locked" : "default"}
-                    triggerModal={bit === "to-unlock" ? true : false}
+                    triggerModal={bit === "to-unlock" || bit === "unlocked"
+                        ? true
+                        : false}
                     hoverAnimate={bit === "locked" ? false : true}
                     mode={bit}
                     knowledgeTitle={$concepts[i].concept}
                     knowledgeContent={$concepts[i].info}
+                    action={bit === "to-unlock" ? `bit-unlock:${i}` : "none"}
                 />
             {/each}
         {/if}

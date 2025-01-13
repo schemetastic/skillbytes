@@ -5,6 +5,7 @@
     import DialogBox from "$lib/DialogBox.svelte";
     import OutroScreen from "$lib/OutroScreen.svelte";
     import BitsCollection from "$lib/BitsCollection.svelte";
+    import ProjectScreen from "$lib/ProjectScreen.svelte";
 </script>
 
 <head>
@@ -16,6 +17,7 @@
         <WelcomeScreen />
         <MenuScreen />
         <DialogBox />
+        <ProjectScreen />
         <OutroScreen />
         <BitsCollection />
     </div>

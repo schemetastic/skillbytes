@@ -1,11 +1,34 @@
 <script>
+    import { projectBoxTitle, projectBoxContent, concepts } from "../stores";
     import KnowledgeBit from "./KnowledgeBit.svelte";
     export let variant = "default";
     export let addedBits = [];
+    export let requiredBits = [];
     export let bitsSize = 50;
+
+    function handlePointerEnter() {
+        if (!requiredBits.length) return;
+        let text = "";
+        requiredBits.forEach((bit) => {
+            text += $concepts[bit].concept + ";";
+        });
+        projectBoxTitle.set("Required bits");
+        projectBoxContent.set(text);
+    }
+    function handlePointerLeave() {
+        projectBoxTitle.set("Skill Capsules");
+        projectBoxContent.set(
+            "Hover over a capsule to see the required bits that it needs to work."
+        );
+    }
 </script>
 
-<figure aria-label="Capsule" class="capsule">
+<figure
+    aria-label="Capsule"
+    class="capsule"
+    on:pointerenter={handlePointerEnter}
+    on:pointerleave={handlePointerLeave}
+>
     <div
         class="capsuleImage"
         style={`--pos-x: ${variant === "default" ? 0 : variant === "correct" ? "-100%" : "-200%"};`}

@@ -14,6 +14,7 @@
         y="140px"
         variant="small"
         title={$bitsCount < 3 ? "You need 3 knowledge bits to unlock" : "Small"}
+        isLocked={$bitsCount < 3 ? true : false}
     />
     <ProjectBox
         x="367px"

@@ -9,6 +9,11 @@ export const collectionModalVisible = writable(false);
 
 export const currentScreen = writable("intro");
 
+export const currentLevel = writable(1);
+
+export const projectBoxTitle = writable("Skill Capsules");
+export const projectBoxContent = writable("Hover over a capsule to see the required bits that it needs to work.");
+
 
 export const bitsCount = writable(0);
 export const bitsStatus = writable(["to-unlock", "to-unlock", "to-unlock", "locked", "locked", "locked", "locked", "locked", "locked", "locked", "locked", "locked", "locked", "locked", "locked", "locked"]);

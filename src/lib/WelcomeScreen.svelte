@@ -41,7 +41,8 @@
             return;
         }
         concepts.set(conceptsObj);
-        levelOneCapsule.set(getRandomRange(0, 2));
+        let levelOneNums = getRandomRange(0, 2);
+        levelOneCapsule.set([levelOneNums[0], levelOneNums[1]]);
 
         let levelTwoNums = chunkArray(getRandomRange(0, 5), 2);
 
