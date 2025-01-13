@@ -3,6 +3,8 @@
     import WelcomeScreen from "$lib/WelcomeScreen.svelte";
     import MenuScreen from "$lib/MenuScreen.svelte";
     import DialogBox from "$lib/DialogBox.svelte";
+    import OutroScreen from "$lib/OutroScreen.svelte";
+    import BitsCollection from "$lib/BitsCollection.svelte";
 </script>
 
 <head>
@@ -14,6 +16,8 @@
         <WelcomeScreen />
         <MenuScreen />
         <DialogBox />
+        <OutroScreen />
+        <BitsCollection />
     </div>
 </main>
 

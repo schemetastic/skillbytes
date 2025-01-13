@@ -2,10 +2,18 @@
     import {
         selectedField,
         concepts,
+        collectionVisible,
         currentScreen,
         dialogVisible,
         dialogTitle,
         dialogContent,
+        levelOneCapsule,
+        levelTwoCapsule1,
+        levelTwoCapsule2,
+        levelThreeCapsule1,
+        levelThreeCapsule2,
+        levelThreeCapsule3,
+        levelThreeCapsule4,
     } from "../stores";
     let selectedOption = null;
     let canSelect = true;
@@ -33,6 +41,20 @@
             return;
         }
         concepts.set(conceptsObj);
+        levelOneCapsule.set(getRandomRange(0, 2));
+
+        let levelTwoNums = chunkArray(getRandomRange(0, 5), 2);
+
+        levelTwoCapsule1.set(levelTwoNums[0]);
+        levelTwoCapsule2.set(levelTwoNums[1]);
+
+        let levelThreeNums = chunkArray(getRandomRange(0, 15), 4);
+        levelThreeCapsule1.set(levelThreeNums[0]);
+        levelThreeCapsule2.set(levelThreeNums[1]);
+        levelThreeCapsule3.set(levelThreeNums[2]);
+        levelThreeCapsule4.set(levelThreeNums[3]);
+
+        collectionVisible.set(true);
         currentScreen.set("menu");
     }
 
@@ -51,6 +73,26 @@
         return result;
     }
 
+    function getRandomRange(min, max) {
+        const range = [];
+        for (let i = min; i <= max; i++) {
+            range.push(i);
+        }
+        for (let i = range.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [range[i], range[j]] = [range[j], range[i]];
+        }
+        return range;
+    }
+
+    function chunkArray(array, chunkCount) {
+        const chunks = [];
+        const chunkSize = Math.ceil(array.length / chunkCount);
+        for (let i = 0; i < array.length; i += chunkSize) {
+            chunks.push(array.slice(i, i + chunkSize));
+        }
+        return chunks;
+    }
     function handleDisclaimer() {
         dialogVisible.set(true);
         dialogTitle.set("Disclaimer");
