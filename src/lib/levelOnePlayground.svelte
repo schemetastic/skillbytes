@@ -4,15 +4,17 @@
         levelOneCapsule,
         projectBoxTitle,
         projectBoxContent,
+        selectedBits,
+        capsuleStatus,
     } from "../stores";
 </script>
 
 <div class="container">
     <div class="capsulesContainer">
         <Capsule
-            variant="default"
-            bitsSize={50}
-            addedBits={[]}
+            variant={$capsuleStatus}
+            bitsSize={25}
+            addedBits={$selectedBits}
             requiredBits={$levelOneCapsule}
         />
     </div>

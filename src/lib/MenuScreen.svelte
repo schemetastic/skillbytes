@@ -7,30 +7,16 @@
 <div
     class={`screen menuScreen ${$currentScreen === "menu" ? "visibleScreen" : ""}`}
 >
-    <h2>Select a project to develop</h2>
+    <h2>Collect knowledge to unlock</h2>
 
-    <ProjectBox
-        x="56px"
-        y="140px"
-        variant="small"
-        title={$bitsCount < 3 ? "You need 3 knowledge bits to unlock" : "Small"}
-        isLocked={$bitsCount < 3 ? true : false}
-    />
     <ProjectBox
         x="367px"
         y="140px"
-        variant="medium"
+        variant="large"
         title={$bitsCount < 8
             ? "You need 8 knowledge bits to unlock"
-            : "Medium"}
-    />
-    <ProjectBox
-        x="678px"
-        y="140px"
-        variant="large"
-        title={$bitsCount < 16
-            ? "You need 16 knowledge bits to unlock"
-            : "Large"}
+            : "My Project"}
+        isLocked={$bitsCount < 8 ? true : false}
     />
     <BitsCounter />
 </div>

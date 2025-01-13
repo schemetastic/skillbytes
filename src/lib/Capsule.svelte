@@ -1,5 +1,11 @@
 <script>
-    import { projectBoxTitle, projectBoxContent, concepts } from "../stores";
+    import {
+        projectBoxTitle,
+        projectBoxContent,
+        concepts,
+        manageModalCurrent,
+        manageModalVisible,
+    } from "../stores";
     import KnowledgeBit from "./KnowledgeBit.svelte";
     export let variant = "default";
     export let addedBits = [];
@@ -10,7 +16,7 @@
         if (!requiredBits.length) return;
         let text = "";
         requiredBits.forEach((bit) => {
-            text += $concepts[bit].concept + ";";
+            text += $concepts[bit].concept + "; ";
         });
         projectBoxTitle.set("Required bits");
         projectBoxContent.set(text);
@@ -51,7 +57,14 @@
         </div>
     </div>
     <div class="manageBtnContainer">
-        <button class="manageBtn"> Manage </button>
+        <button
+            class="manageBtn"
+            on:click={() => {
+                manageModalVisible.set(true);
+            }}
+        >
+            Manage
+        </button>
     </div>
 </figure>
 
