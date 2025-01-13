@@ -6,8 +6,8 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
-		"preview": "vite preview",
-		"start": "vite preview"
+		"preview": "npx vite preview --host",
+		"start": "npx vite preview --host"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^3.0.0",
